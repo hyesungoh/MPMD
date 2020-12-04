@@ -5,6 +5,6 @@ from rest_framework.response import Response
 # Create your views here.
 class MpmdApi(APIView):
     def get(self, request):
-        s = {'name': "hyesung", 'age': 20}
+        s = [{'name': "hyesung", 'age': 20}, {'name': "ohs", 'age': 23}]
         return Response(s)
     
