@@ -19,7 +19,13 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'refresh_movies_every_12hours': {
         'task': 'task_refresh_movies',  # 해당 name의 task를 실행
-        # 'schedule': 43200.0,  # 12시간
-        'schedule': 30.0,
+        'schedule': 43200.0,  # 12시간
+        # 'schedule': 30.0,
+    },
+
+    'refresh_dramas_every_12hours': {
+        'task': 'task_refresh_dramas',  # 해당 name의 task를 실행
+        'schedule': 43200.0,  # 12시간
+        # 'schedule': 30.0,
     },
 }

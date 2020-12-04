@@ -6,7 +6,9 @@
 
 ---
 
-## Setting
+## React + Django Setting
+
+-   Django REST
 
 ```terminal
 pip install djangorestframework
@@ -19,12 +21,15 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+# 추가
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
 }
 ```
+
+-   HTTP 접근제어 규약(CORS : Cross-Origin Resource Sharing)
 
 ```terminal
 pip install django-cors-headers
@@ -40,6 +45,60 @@ MIDDLEWARE = [
     ...
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+# 추가
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+]
+```
+
+## Selenium
+
+-   [IMDB](https://www.imdb.com/) api는 영화에 대한 정보가 아닌 IMDB url을 제공하여 데이터 가공
+
+```terminal
+pip install selenium
+```
+
+```python
+from selenium import webdriver
+
+driver = webdriver.Chrome('chromedriver')
+driver.get(URL)
+...
+
+driver.close()
+```
+
+-   Selenium을 이용하여 JS를 이용하여 비동기적이거나 늦게 불러와지는 데이터를 BeautifulSoup를 이용하여 Parsing
+
+```python
+# driver.close() 전에
+page_source = driver.page_source
+
+html = BeautifulSoup(page_source, "html.parser")
+# 이후 데이터 가공하여 해당 Model에 저장
+```
+
+## Celery + Redis
+
+-   ##### [본인 repo 참조](https://github.com/hyesungoh/Django_Asynchronous_with_Celery_Redis)
+
+-   schedule을 이용하여 12시간마다 영화와 드라마들을 Refresh하게 구현
+
+```python
+app.conf.beat_schedule = {
+    'refresh_movies_every_12hours': {
+        'task': 'task_refresh_movies',
+        'schedule': 43200.0,  # 12시간
+    },
+
+    'refresh_dramas_every_12hours': {
+        'task': 'task_refresh_dramas',
+        'schedule': 43200.0,  # 12시간
+    },
+}
 ```
 
 ## Issue
