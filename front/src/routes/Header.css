@@ -1,0 +1,27 @@
+.header {
+    width: 80vw;
+    height: 100vh;
+    
+    padding: 10px 20px;
+    background-color:#262626;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header h1 {
+    position: relative;
+    top: -150px;
+    left: -12%;
+    font-size: 500px;
+
+    letter-spacing: -50px;
+}
+
+.header h6 {
+    margin-top: auto;
+    margin-bottom: 2vh;
+    font-size: 14px;
+    opacity: 0.2;
+}

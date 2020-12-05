@@ -1,12 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: white;
 }
 
 .App {
-  top: 0;
-  left: 0;
-  
-  display: flex;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #262626;
+}
+
+/* for CSSTransition */
+
+.slide-enter,
+.slide-exit {
+    transition: transform 1500ms ease-out;
+}
+
+.slide-enter {
+    transform: translateY(100vh);
+}
+
+.slide-enter.slide-enter-active {
+    transform: translateY(0%);
+}
+
+.slide-exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(0%);
+}
+
+.slide-exit-active {
+    transform: translateY(-100vh);
 }
