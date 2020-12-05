@@ -21,16 +21,42 @@
 .nav__content {
     display: felx;
 }
+
 .nav__content a {
     text-decoration: none;
-
     font-size: 16px;
-    margin-top: 20px;
 
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 30px 1fr;
+    justify-content: center;
     align-items: center;
+}
+
+.nav__content__background {
+    border-radius: 15px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    margin: 5px 0px;
+    display: flex;
+
+}
+
+
+.current_route {
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    animation: ani_nav_background 8s linear infinite;
+    background-size: 400%;
+}
+
+@keyframes ani_nav_background {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 400%;
+    }
 }
 
 /* .nav__hr {
