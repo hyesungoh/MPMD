@@ -9,6 +9,7 @@ import requests
 from .models import Movies as Movies_model
 from .models import Dramas as Dramas_model
 
+from .serializers import MovieSerializer, DramaSerializer
 
 def refresh_movies():
     # 저장된 영화들 삭제
@@ -205,13 +206,13 @@ class Header(APIView):
 
 class Movies(APIView):
     def get(self, request):
-        
-        response = [{'name': "hyesung", 'age': 20}, {'name': "ohs", 'age': 23}]
-        return Response(response)
+        movies = Movies_model.objects.all()
+        serializer = MovieSerializer(movies, many=True)
+        return Response(serializer.data)
 
 
 class Dramas(APIView):
     def get(self, request):
-
-        response = [{'name': "hyesung", 'age': 20}, {'name': "ohs", 'age': 23}]
-        return Response(response)
+        dramas = Dramas_model.objects.all()
+        serializer = DramaSerializer(dramas, many=True)
+        return Response(serializer.data)

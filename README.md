@@ -125,3 +125,13 @@ npm install mime-types
 // node_modules/send/index.js 상단 부분 수정
 var mime = require("mime-types");
 ```
+
+##### serializer의 fields를 못찾는 에러
+```terminal
+Original exception text was: 'QuerySet' object has no attribute 'field_name'.
+```
+해결 방법
+```python
+# many=True 속성을 추가
+serializer = MovieSerializer(movies, many=True)
+```

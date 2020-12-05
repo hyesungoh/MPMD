@@ -30,7 +30,7 @@ const App = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/").then((response) => {
+        fetch("http://127.0.0.1:8000/api/movies").then((response) => {
             response.json().then(
                 (result) => {
                     setIsLoaded(true);
