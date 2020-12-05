@@ -10,24 +10,29 @@ const Nav = () => {
                 <h1>MPMD</h1>
             </div>
             <div className="nav__content">
-                <div className={"nav__content__background current_route"}>
-                    <Link to="/">
-                        <i className="fas fa-home"></i> home
-                    </Link>
-                </div>
+                <Link to="/">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="fas fa-home"></i> home
+                </Link>
 
-                <div className="nav__content__background">
-                    <div className="fake"></div>
-                    <Link to="/movies">
-                        <i className="fas fa-film"></i> movies
-                    </Link>
-                </div>
+                <Link to="/movies">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="fas fa-film"></i> movies
+                </Link>
 
-                <div className="nav__content__background">
-                    <Link to="/dramas">
-                        <i className="fas fa-broadcast-tower"></i> dramas
-                    </Link>
-                </div>
+                <Link to="/dramas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="fas fa-broadcast-tower"></i> dramas
+                </Link>
             </div>
 
             {/* <hr className="nav__hr"/> */}
