@@ -1,10 +1,28 @@
 # MPMD
 
-###### Most Popular Movies and Drama
+###### IMDB API 기준 인기있는 영화, 드라마 상위 100개를 보여주는 Web
 
 #### react + django with IMDB api
 
+-   ##### Backend
+-   ##### Frontend
+-   ##### Setting
+
 ---
+
+## 완성본
+
+#### navigation, route with animation
+
+![nav_gif](https://user-images.githubusercontent.com/26461307/101295447-1b8ada80-3861-11eb-9c8f-4dde5b4c78b6.gif)
+
+#### card with animation
+
+![card_gif](https://user-images.githubusercontent.com/26461307/101295449-1d549e00-3861-11eb-80fb-815dd21d97c9.gif)
+
+#### modal with animation, link trailer
+
+![modal_gif](https://user-images.githubusercontent.com/26461307/101295452-1e85cb00-3861-11eb-81d4-23699a31fda2.gif)
 
 ## React + Django Setting
 
@@ -127,10 +145,13 @@ var mime = require("mime-types");
 ```
 
 ##### serializer의 fields를 못찾는 에러
+
 ```terminal
 Original exception text was: 'QuerySet' object has no attribute 'field_name'.
 ```
+
 해결 방법
+
 ```python
 # many=True 속성을 추가
 serializer = MovieSerializer(movies, many=True)
