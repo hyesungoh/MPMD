@@ -3,6 +3,7 @@ import React from "react";
 import "./VideoCard.css";
 
 const VideoCard = (props) => {
+    // 받아온 props를 기준으로 사용하기 편하게 unpacking... 더 좋은 방법이 있을 것 같다.
     const title = props.props.title,
         year = props.props.year,
         summary = props.props.summary,
@@ -17,6 +18,7 @@ const VideoCard = (props) => {
         trailer_href = props.props.trailer_href,
         trailer_img = props.props.trailer_img;
 
+    // modal에 넘겨 줄 object를 가공
     const modalProps = {
         title,
         year,

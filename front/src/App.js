@@ -8,6 +8,7 @@ import Movies from "./routes/Movies";
 
 import "./App.css";
 
+// react-transition-group을 이용하여 route간 애니메이션을 사용하기 위한 함수 분리
 const SwitchRoute = withRouter(({ location }) => (
     <TransitionGroup>
         <CSSTransition key={location.key} classNames="slide" timeout={3000}>

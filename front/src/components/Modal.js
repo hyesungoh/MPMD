@@ -2,8 +2,11 @@ import React from "react";
 import "./Modal.css";
 
 const Modal = ({ isOpened, onClose, data }) => {
+    // IMDB api의 트레일러 동영상 부분은 imdb url에 추가될 path를 보내줌으로
+    // 기본 url을 작성하여 더함
     const BASE_URL = "https://www.imdb.com";
     return (
+        // state의 상태에 따라 modal의 클래스를 조작하여 보여줌을 구현
         <div className={isOpened ? "modal_base modal__showing" : "modal_base"}>
             <div className="modal">
                 <div className="modal__header">

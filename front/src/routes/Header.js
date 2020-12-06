@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 
+// 기본 route를 보여줄 header
 const Header = () => {
     return (
         <div className="header">

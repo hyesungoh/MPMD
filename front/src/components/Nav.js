@@ -7,6 +7,7 @@ const Nav = () => {
     const currentPath = useLocation().pathname;
     useEffect(() => {}, [currentPath]);
 
+    // 현재 path를 확인하여 네비게이션 요소에 클래스를 추가하기 위함
     const useCurrentPath = (path) => {
         if (currentPath === path) {
             return "current_path";
