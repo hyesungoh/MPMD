@@ -5,7 +5,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Nav from "./components/Nav";
 import Header from "./routes/Header";
 import Movies from "./routes/Movies";
-import Dramas from "./routes/Dramas";
 
 import "./App.css";
 
@@ -15,7 +14,7 @@ const SwitchRoute = withRouter(({ location }) => (
             <Switch location={location}>
                 <Route path="/" exact={true} component={Header} />
                 <Route path="/movies" component={Movies} />
-                <Route path="/dramas" component={Dramas} />
+                <Route path="/dramas" component={Movies} />
             </Switch>
         </CSSTransition>
     </TransitionGroup>

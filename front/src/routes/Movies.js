@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import Loading from "../components/Loading";
 import VideoCard from "../components/VideoCard";
 import Modal from "../components/Modal";
@@ -10,8 +12,11 @@ const Movies = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
 
+    const currentPath = useLocation().pathname;
+    const fetchUrl = "http://127.0.0.1:8000/api" + currentPath;
+
     const getMovies = () => {
-        fetch("http://127.0.0.1:8000/api/movies").then((response) => {
+        fetch(fetchUrl).then((response) => {
             response.json().then(
                 (result) => {
                     setIsLoaded(true);
@@ -33,6 +38,9 @@ const Movies = () => {
         setOpened(true);
     };
     const closeModal = () => setOpened(false);
+
+    const pathName = currentPath.replace("/","").toUpperCase();
+
     useEffect(getMovies, []);
 
     return (
@@ -40,7 +48,7 @@ const Movies = () => {
             {isLoaded ? (
                 <div className="movies__active">
                     <div className="movies__header">
-                        <h1>Most Popular Movies</h1>
+                        <h1>Most Popular {pathName}</h1>
                     </div>
                     {movies.map((movie) => {
                         return (
