@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./VideoCard.css";
 
 const VideoCard = (props) => {
@@ -17,19 +18,21 @@ const VideoCard = (props) => {
         trailer_img = props.props.trailer_img;
 
     return (
-        <div className="video_card">
-            <div className="video_card__img">
-                <img src={poster} alt={title} />
-            </div>
-            <h1>{title}</h1>
-            <div className="video_card__genres">
-                {genres.map((genre) => {
-                    return <span>{genre}</span>;
-                })}
-            </div>
+        <div>
+            <div className="video_card" onClick={props.openModal}>
+                <div className="video_card__img">
+                    <img src={poster} alt={title} />
+                </div>
+                <h1>{title}</h1>
+                <div className="video_card__genres">
+                    {genres.map((genre, index) => {
+                        return <span key={index}>{genre}</span>;
+                    })}
+                </div>
 
-            <div className="video_card__date">
-                <span>{date}</span>
+                <div className="video_card__date">
+                    <span>{date}</span>
+                </div>
             </div>
         </div>
     );
