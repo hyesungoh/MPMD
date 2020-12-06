@@ -35,6 +35,8 @@
     position: relative;
     padding: 10px 10px;
     margin: 5px 0px;
+
+    transition: all 0.5s;
 }
 
 .nav__content a:hover {
@@ -49,6 +51,17 @@
     transition-delay: 0.5s;
     color: black;
 }
+
+.current_path {
+    background: white;
+    color: black;
+}
+
+.current_path i {
+    color: black;
+}
+
+/* a hover animation 시작 */
 
 .nav__content a span {
     position: absolute;

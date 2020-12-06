@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import VideoCard from "../components/VideoCard";
 
 import "./Movies.css";
 
@@ -14,7 +15,6 @@ const Movies = () => {
                 (result) => {
                     setIsLoaded(true);
                     setMovies(result);
-                    console.log(result);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -25,10 +25,18 @@ const Movies = () => {
     };
 
     useEffect(getMovies, []);
-    
+
     return (
         <div className="movies">
-            {isLoaded ? <div> <h1>im movie</h1></div>: <Loading />}
+            {isLoaded ? (
+                <div className="movies__active">
+                    {movies.map((movie, index) => {
+                        return <VideoCard key={index} props={movie} />;
+                    })}
+                </div>
+            ) : (
+                <Loading />
+            )}
         </div>
     );
 };
