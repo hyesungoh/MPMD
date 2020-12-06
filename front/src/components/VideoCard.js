@@ -17,9 +17,26 @@ const VideoCard = (props) => {
         trailer_href = props.props.trailer_href,
         trailer_img = props.props.trailer_img;
 
+    const modalProps = {
+        title,
+        year,
+        summary,
+        time,
+        genres,
+        date,
+        poster,
+        trailer_href,
+        trailer_img,
+    };
+
     return (
         <div>
-            <div className="video_card" onClick={props.openModal}>
+            <div
+                className="video_card"
+                onClick={() => {
+                    props.openModal(modalProps);
+                }}
+            >
                 <div className="video_card__img">
                     <img src={poster} alt={title} />
                 </div>

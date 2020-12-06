@@ -26,7 +26,12 @@ const Movies = () => {
     };
 
     const [isOpened, setOpened] = useState(false);
-    const openModal = () => setOpened(true);
+    const [modalProps, setModalProps] = useState([]);
+
+    const openModal = (modalData) => {
+        setModalProps(modalData);
+        setOpened(true);
+    };
     const closeModal = () => setOpened(false);
     useEffect(getMovies, []);
 
@@ -51,7 +56,11 @@ const Movies = () => {
                 <Loading />
             )}
 
-            <Modal isOpened={isOpened} onClose={closeModal}></Modal>
+            <Modal
+                isOpened={isOpened}
+                onClose={closeModal}
+                data={modalProps}
+            ></Modal>
         </div>
     );
 };
