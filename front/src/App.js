@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Header from "./routes/Header";
 import Movies from "./routes/Movies";
 import Actor from "./routes/Actor/Actor";
+import About from "./routes/About/About";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ const SwitchRoute = withRouter(({ location }) => (
                 <Route path="/movies" component={Movies} />
                 <Route path="/dramas" component={Movies} />
                 <Route path="/actor" component={Actor} />
+                <Route path="/about" component={About} />
             </Switch>
         </CSSTransition>
     </TransitionGroup>

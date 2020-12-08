@@ -53,6 +53,14 @@ const Nav = () => {
                     <span></span>
                     <i className="fas fa-broadcast-tower"></i> actor
                 </Link>
+
+                <Link to="/about" className={useCurrentPath("/about")}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="fas fa-broadcast-tower"></i> about
+                </Link>
             </div>
 
             {/* <hr className="nav__hr"/> */}
