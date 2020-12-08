@@ -45,6 +45,14 @@ const Nav = () => {
                     <span></span>
                     <i className="fas fa-broadcast-tower"></i> dramas
                 </Link>
+
+                <Link to="/actor" className={useCurrentPath("/actor")}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="fas fa-broadcast-tower"></i> actor
+                </Link>
             </div>
 
             {/* <hr className="nav__hr"/> */}

@@ -57,6 +57,7 @@
 .modal__header button {
     all: unset;
     align-self: flex-start;
+    cursor: pointer;
 }
 
 .modal__header button i {

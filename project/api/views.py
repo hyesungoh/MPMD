@@ -11,6 +11,7 @@ from .models import Dramas as Dramas_model
 
 from .serializers import MovieSerializer, DramaSerializer
 
+
 def refresh_movies():
     # 저장된 영화들 삭제
     Movies_model.objects.all().delete()
@@ -115,7 +116,7 @@ def refresh_dramas():
     url = "https://imdb8.p.rapidapi.com/title/get-most-popular-tv-shows"
 
     querystring = {"purchaseCountry": "US",
-        "currentCountry": "US", "homeCountry": "US"}
+                   "currentCountry": "US", "homeCountry": "US"}
     headers = {
         'x-rapidapi-key': "af7d132985msh0c409f9426fcad6p1c448bjsn2754439d750f",
         'x-rapidapi-host': "imdb8.p.rapidapi.com"
@@ -198,7 +199,6 @@ def refresh_dramas():
     driver.close()
 
 
-
 class Header(APIView):
     def get(self, request):
         return Response()
@@ -216,3 +216,16 @@ class Dramas(APIView):
         dramas = Dramas_model.objects.all()
         serializer = DramaSerializer(dramas, many=True)
         return Response(serializer.data)
+
+
+class Actor_by_borndate(APIView):
+    def get(self, request):
+        get_actor_view_response = {
+            "status": 0, "form_data": {"month": "month", "day": "day"}}
+        return Response(get_actor_view_response)
+
+    def post(self, request):
+        pass
+        # get_actor_view_response = {
+        #     "status": 1, 
+        # }
