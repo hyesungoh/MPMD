@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
-
-import CSRFToken from "../../components/CSRFToken";
 
 const Actor = () => {
     const [status, setStatus] = useState("get");
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
+    const [actorList, setActorList] = useState([]);
 
     const fetchUrl = "http://127.0.0.1:8000/api/actor";
     const formMonth = useRef();
@@ -16,19 +15,18 @@ const Actor = () => {
         e.preventDefault();
 
         let formData = new FormData();
+        formData.append("month", formMonth.current.value);
+        formData.append("day", formDay.current.value);
 
-        formData.append("month", "2");
-        formData.append("day", "2");
+        setStatus("post");
 
         axios({
             method: "post",
             url: fetchUrl,
             data: formData,
         }).then((response) => {
-            const data = response.data;
-            setStatus(data.status);
+            setActorList(response.data.actor_data);
             setIsLoaded(true);
-            console.log(response.data);
         });
     };
 

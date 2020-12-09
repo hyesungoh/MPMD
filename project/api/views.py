@@ -200,6 +200,38 @@ def refresh_dramas():
     driver.close()
 
 
+def get_actory_by_borndate(month, day):
+    url = "https://imdb8.p.rapidapi.com/actors/list-born-today"
+
+    querystring = {"day":day ,"month":month}
+
+    headers = {
+        'x-rapidapi-key': "af7d132985msh0c409f9426fcad6p1c448bjsn2754439d750f",
+        'x-rapidapi-host': "imdb8.p.rapidapi.com"
+        }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    actor_list = eval(response.text)
+
+    BASE_URL = "https://www.imdb.com"
+
+    result = []
+    for actor_info in actor_list[0:5]:
+        page_source = requests.get(BASE_URL + actor_info)
+        html = BeautifulSoup(page_source.content, "html.parser")
+
+        name_h1 = html.find("h1", {"class": "header"}).text
+        name = name_h1.replace("\n", "").strip()
+
+        image_div = html.find("div", {"class": "image"})
+        image_href = image_div.find("a")["href"]
+
+        temp_dict = {"name": name, "image_href": image_href}
+        result.append(temp_dict)
+    
+    return result
+
+
 class Header(APIView):
     def get(self, request):
         return Response()
@@ -229,6 +261,6 @@ class Actor_by_borndate(APIView):
         status = "post"
         month = request.data.get("month")
         day = request.data.get("day")
-
-        actor_date_query = {"status": status, "month": month, "day": day}
+        actor_data = get_actory_by_borndate(month, day)
+        actor_date_query = {"status": status, "actor_data": actor_data}
         return Response(actor_date_query)
