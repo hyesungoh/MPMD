@@ -8,6 +8,7 @@ import requests
 
 from .models import Movies as Movies_model
 from .models import Dramas as Dramas_model
+from .forms import ActorForm
 
 from .serializers import MovieSerializer, DramaSerializer
 
@@ -221,11 +222,13 @@ class Dramas(APIView):
 class Actor_by_borndate(APIView):
     def get(self, request):
         get_actor_view_response = {
-            "status": 0, "form_data": {"month": "month", "day": "day"}}
+            "status": "get", "form_data": {"month": "month", "day": "day"}}
         return Response(get_actor_view_response)
 
     def post(self, request):
-        pass
-        # get_actor_view_response = {
-        #     "status": 1, 
-        # }
+        status = "post"
+        month = request.data.get("month")
+        day = request.data.get("day")
+
+        actor_date_query = {"status": status, "month": month, "day": day}
+        return Response(actor_date_query)

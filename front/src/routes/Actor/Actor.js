@@ -1,56 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
+import CSRFToken from "../../components/CSRFToken";
+
 const Actor = () => {
-    // status state 0을 기본으로 생성 
-    // > 0이면 get, 1이면 post로 데이터 가져온 후 셋스테이트
-    // 
-    const [actorData, setActorData] = useState([]);
+    const [status, setStatus] = useState("get");
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
 
-    const useActorData = () => {
-        const fetchUrl = "http://127.0.0.1:8000/api/actor";
-        axios.get(fetchUrl).then(
-            (response) => {
-                setActorData(response.data);
-                setIsLoaded(true);
-            },
-            (error) => {
-                setIsLoaded(true);
-                setError(error);
-            }
-        );
+    const fetchUrl = "http://127.0.0.1:8000/api/actor";
+    const formMonth = useRef();
+    const formDay = useRef();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+
+        formData.append("month", "2");
+        formData.append("day", "2");
+
+        axios({
+            method: "post",
+            url: fetchUrl,
+            data: formData,
+        }).then((response) => {
+            const data = response.data;
+            setStatus(data.status);
+            setIsLoaded(true);
+            console.log(response.data);
+        });
     };
 
-    useEffect(useActorData, []);
-
-    const CheckStatus = () =>
-        actorData.status == 0 ? (
-
+    if (status === "get") {
+        return (
             <div>
-                <h1>this is actor get</h1>
-                <form method="POST">
-                    <input type="text" name={actorData.form_data.month} />
-                    <input type="text" name={actorData.form_data.day} />
+                <h1>actor get</h1>
+                <form method="POST" onSubmit={handleSubmit}>
+                    <input type="text" name="month" ref={formMonth} />
+                    <input type="text" name="day" ref={formDay} />
                     <input type="submit" value="submit" />
                 </form>
             </div>
-        ) : (
-            <div></div>
         );
-
-    return (
-        <div>
-            {isLoaded ? (
-                <CheckStatus />
-            ) : (
+    } else {
+        if (isLoaded) {
+            return (
                 <div>
-                    <h1>hellog</h1>
+                    <h1> POST </h1>
                 </div>
-            )}
-        </div>
-    );
+            );
+        } else {
+            return (
+                <div>
+                    <h1> LOADING </h1>
+                </div>
+            );
+        }
+    }
 };
 
 export default Actor;
