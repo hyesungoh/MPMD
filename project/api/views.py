@@ -203,14 +203,16 @@ def refresh_dramas():
 def get_actory_by_borndate(month, day):
     url = "https://imdb8.p.rapidapi.com/actors/list-born-today"
 
-    querystring = {"day":day ,"month":month}
+    querystring = {"day": day, "month": month}
 
     headers = {
         'x-rapidapi-key': "af7d132985msh0c409f9426fcad6p1c448bjsn2754439d750f",
         'x-rapidapi-host': "imdb8.p.rapidapi.com"
-        }
+    }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
+    response = requests.request(
+        "GET", url, headers=headers, params=querystring)
+
     actor_list = eval(response.text)
 
     BASE_URL = "https://www.imdb.com"
@@ -228,7 +230,7 @@ def get_actory_by_borndate(month, day):
 
         temp_dict = {"name": name, "image_href": image_href}
         result.append(temp_dict)
-    
+
     return result
 
 
@@ -262,5 +264,6 @@ class Actor_by_borndate(APIView):
         month = request.data.get("month")
         day = request.data.get("day")
         actor_data = get_actory_by_borndate(month, day)
-        actor_date_query = {"status": status, "actor_data": actor_data}
+        actor_date_query = {"status": status, "date": {
+            "month": month, "day": day}, "actor_data": actor_data}
         return Response(actor_date_query)

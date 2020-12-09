@@ -51,7 +51,7 @@ const Nav = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    <i className="fas fa-broadcast-tower"></i> actor
+                    <i className="fas fa-user-friends"></i> actor
                 </Link>
 
                 <Link to="/about" className={useCurrentPath("/about")}>
@@ -59,7 +59,7 @@ const Nav = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    <i className="fas fa-broadcast-tower"></i> about
+                    <i className="far fa-address-card"></i> about
                 </Link>
             </div>
 
