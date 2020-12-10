@@ -141,14 +141,14 @@
     transition-delay: 0.25s;
 }
 
-/* .nav__hr {
+.nav__hr {
     position: relative;
     width: 90%;
     align-self: center;
     border-radius: 10px;
     opacity: 0.2;
-    margin: 12% 0px;
-} */
+    margin: 24px 0px;
+}
 
 .nav__footer {
     margin-top: auto;

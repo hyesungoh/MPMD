@@ -30,6 +30,16 @@ const Nav = () => {
                     <i className="fas fa-home"></i> home
                 </Link>
 
+                <Link to="/about" className={useCurrentPath("/about")}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i className="far fa-address-card"></i> about
+                </Link>
+
+                <hr className="nav__hr" />
+
                 <Link to="/movies" className={useCurrentPath("/movies")}>
                     <span></span>
                     <span></span>
@@ -53,17 +63,7 @@ const Nav = () => {
                     <span></span>
                     <i className="fas fa-user-friends"></i> actor
                 </Link>
-
-                <Link to="/about" className={useCurrentPath("/about")}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <i className="far fa-address-card"></i> about
-                </Link>
             </div>
-
-            {/* <hr className="nav__hr"/> */}
 
             <div className="nav__footer">
                 <span>this is powered py IMDB</span>
