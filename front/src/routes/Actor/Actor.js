@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 import Loading from "../../components/Loading";
@@ -15,6 +15,8 @@ const Actor = () => {
     const fetchUrl = "http://127.0.0.1:8000/api/actor";
     const formMonth = useRef();
     const formDay = useRef();
+
+    const dayMaxByMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,31 +38,51 @@ const Actor = () => {
         });
     };
 
+    useEffect(() => {
+        formMonth.current.addEventListener("change", () => {
+            const currenMonth = parseInt(formMonth.current.value);
+            if (currenMonth >= 1 && currenMonth <= 12) {
+                formDay.current.max = dayMaxByMonth[currenMonth - 1];
+            }
+        });
+    }, []);
+
     if (status === "get") {
         return (
             <div className="actor">
+                <h1>Find actor by birth day</h1>
                 <div className="actor__base">
-                    <h1>actor get</h1>
                     <form method="POST" onSubmit={handleSubmit}>
-                        <div className="actor__base__input">
+                        <div className="actor__custom-input">
                             <input
-                                type="text"
+                                type="number"
+                                min="1"
+                                max="12"
                                 className="input-text"
                                 name="month"
                                 ref={formMonth}
+                                required
                             />
+                            <span className="placeholder">Month</span>
+                        </div>
+
+                        <div className="actor__custom-input">
                             <input
-                                type="text"
+                                type="number"
+                                min="1"
+                                max="31"
                                 className="input-text"
                                 name="day"
                                 ref={formDay}
+                                required
                             />
+                            <span className="placeholder">Day</span>
                         </div>
-                        <input
+
+                        <button
+                            className="actor__hidden"
                             type="submit"
-                            class="input-submit"
-                            value="submit"
-                        />
+                        ></button>
                     </form>
                 </div>
             </div>
@@ -70,7 +92,7 @@ const Actor = () => {
             return (
                 <div className="actor">
                     <h1>
-                        {date.month} : {date.day}{" "}
+                        {date.month} : {date.day}
                     </h1>
                     {actorList.map((actor, index) => {
                         return <ActorCard key={index} props={actor} />;
