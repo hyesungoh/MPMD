@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import Loading from "../components/Loading";
-import VideoCard from "../components/VideoCard";
-import Modal from "../components/Modal";
+import Loading from "../../components/Loading/Loading";
+import VideoCard from "../../components/VideoCard/VideoCard";
+import Modal from "../../components/Modal/Modal";
 
 import "./Movies.css";
 

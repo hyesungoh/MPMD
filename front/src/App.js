@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import Nav from "./components/Nav";
-import Header from "./routes/Header";
-import Movies from "./routes/Movies";
+import Nav from "./components/Nav/Nav";
+import Header from "./routes/Header/Header";
+import Movies from "./routes/Movies/Movies";
 import Actor from "./routes/Actor/Actor";
 import About from "./routes/About/About";
 

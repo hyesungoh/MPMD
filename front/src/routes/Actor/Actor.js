@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-import Loading from "../../components/Loading";
+import Loading from "../../components/Loading/Loading";
 import ActorCard from "./ActorCard/ActorCard";
 
 import "./Actor.css";
