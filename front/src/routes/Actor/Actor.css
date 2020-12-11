@@ -95,8 +95,8 @@
 
     display: grid;
     grid-template:
-        "img name" 50px
-        "img summary" 170px / 150px 1fr;
+        "img name" 40px
+        "img summary" 180px / 150px 1fr;
 
 
     padding: 10px 10px;
@@ -125,11 +125,22 @@
 
 .card__name {
     grid-area: name;
+
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+
+    font-size: 16px;
 }
 
 .card__summary {
     grid-area: summary;
 
+    padding-top: 5px;
     display: flex;
     overflow: scroll;
+
+    font-size: 14px;
+    line-height: 24px;
+    opacity: 0.7;
 }
