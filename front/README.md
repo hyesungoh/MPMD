@@ -6,13 +6,15 @@
     -   ##### Nav
     -   ##### Header
     -   ##### Movies (Drama와 같음)
+    -   ##### Actor
+        -   ##### ActorCard
 
 #### Component
 
 -   ##### Movies
-    -   ##### Loading
     -   ##### VideoCard
     -   ##### Modal
+-   ##### Loading
 
 ---
 
@@ -25,6 +27,8 @@
 -   css Flex를 조금 더 자유롭게 사용할 수 있게 됨
 
 -   css position에 대해 조금 더 이해하게 됨
+
+-   react-spring 을 이용하여 조금 더 다채로운 애니메이션을 사용해 봄
 
 ---
 
@@ -39,6 +43,8 @@
 -   세분화하면서 useState와 useEffect 사용이 불편함
 
 -   컴포넌트 재사용이 개발중에 할 수 있을 것 같아 적용하여 변수 및 클래스 이름이 부적절
+
+-   react-spring에 대한 이해도
 
 ---
 

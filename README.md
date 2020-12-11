@@ -12,17 +12,25 @@
 
 ## 완성본
 
-#### navigation, route with animation
+#### Navigation, route with animation
 
-![nav_gif](https://user-images.githubusercontent.com/26461307/101295447-1b8ada80-3861-11eb-9c8f-4dde5b4c78b6.gif)
+![nav](https://user-images.githubusercontent.com/26461307/101917317-6fa01100-3c0b-11eb-80eb-3f7298520154.gif)
 
-#### card with animation
+#### Card with animation
 
-![card_gif](https://user-images.githubusercontent.com/26461307/101295449-1d549e00-3861-11eb-80fb-815dd21d97c9.gif)
+![card](https://user-images.githubusercontent.com/26461307/101917294-6b73f380-3c0b-11eb-9bb8-cc206c3e1daf.gif)
 
-#### modal with animation, link trailer
+#### Modal with animation, link trailer
 
-![modal_gif](https://user-images.githubusercontent.com/26461307/101295452-1e85cb00-3861-11eb-81d4-23699a31fda2.gif)
+![modal](https://user-images.githubusercontent.com/26461307/101917314-6f077a80-3c0b-11eb-9f72-f66fc1860ca4.gif)
+
+#### Actor by birth day, Loading animation
+
+![actor_input](https://user-images.githubusercontent.com/26461307/101917288-6a42c680-3c0b-11eb-979c-20e41453ad11.gif)
+
+#### Actor card 3d animation, link profile
+
+![actor](https://user-images.githubusercontent.com/26461307/101918105-4df35980-3c0c-11eb-9464-cd2025f709f7.gif)
 
 ## React + Django Setting
 
