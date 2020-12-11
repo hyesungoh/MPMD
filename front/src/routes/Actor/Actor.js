@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import axios from "axios";
 
 import Loading from "../../components/Loading/Loading";
@@ -93,11 +92,13 @@ const Actor = () => {
             return (
                 <div className="actor">
                     <h1>
-                        {date.month} : {date.day}
+                        Actor who born on {date.month}, {date.day}
                     </h1>
-                    {actorList.map((actor, index) => {
-                        return <ActorCard key={index} props={actor} />;
-                    })}
+                    <div className="actor__result">
+                        {actorList.map((actor, index) => {
+                            return <ActorCard key={index} props={actor} />;
+                        })}
+                    </div>
                 </div>
             );
         } else {

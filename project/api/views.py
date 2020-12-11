@@ -226,9 +226,16 @@ def get_actory_by_borndate(month, day):
         name = name_h1.replace("\n", "").strip()
 
         image_div = html.find("div", {"class": "image"})
+        image_src = image_div.find("img")["src"]
         image_href = image_div.find("a")["href"]
 
-        temp_dict = {"name": name, "image_href": image_href}
+        known_for_div = html.find(
+            "div", {"class": "name-trivia-bio-text"}).find("div", {"class": "inline"})
+        summary = known_for_div.get_text()
+
+        temp_dict = {"name": name, "image_src": image_src, "image_href": image_href,
+                     "summary": summary}
+
         result.append(temp_dict)
 
     return result

@@ -73,3 +73,31 @@
 .actor__hidden {
     display: none;
 }
+
+.actor__result {
+    width: auto;
+    height: 80%;
+
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 220px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+    background-color: red;
+    backdrop-filter: blur(1px);
+
+    /* display: grid;
+    grid-template:
+        "img name"
+        "img summary"; */
+    
+}
