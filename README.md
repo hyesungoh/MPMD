@@ -4,9 +4,9 @@
 
 #### react + django with IMDB api
 
--   ##### Backend
--   ##### Frontend
--   ##### Setting
+-   ##### [Backend](https://github.com/hyesungoh/MPMD/tree/master/project)
+-   ##### [Frontend](https://github.com/hyesungoh/MPMD/tree/master/front)
+-   ##### [Setting](https://github.com/hyesungoh/MPMD#react--django-setting)
 
 ---
 
